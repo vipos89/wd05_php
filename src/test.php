@@ -1,8 +1,9 @@
 <?php
+include_once 'db.php';
 
     if ($_SERVER['REQUEST_METHOD']== 'POST'){
-        echo "POST";
-        echo "<pre>";
-        print_r($_POST);
-        echo "</pre>";
+        $title = $_POST['title'];
+        $content = $_POST['content'];
+        $sql = "INSERT INTO posts (title, content) VALUES ('$title', '$content');";
+        mysqli_query($connection, $sql);
     }

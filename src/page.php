@@ -1,3 +1,11 @@
+<?php
+include_once 'db.php';
+$id = $_GET['id'];
+$res = mysqli_query($connection, "select * FROM posts where id = $id");
+$post = mysqli_fetch_assoc($res);
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,8 +39,8 @@
 <header class="py-5 bg-light border-bottom mb-4">
     <div class="container">
         <div class="text-center my-5">
-            <h1 class="fw-bolder">Welcome to Blog Home!</h1>
-            <p class="lead mb-0">A Bootstrap 5 starter layout for your next blog homepage</p>
+            <h1 class="fw-bolder"><?=$post['title']?></h1>
+            <p class="lead mb-0"><?=$post['content']?></p>
         </div>
     </div>
 </header>
@@ -46,8 +54,8 @@
                 <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
                 <div class="card-body">
                     <div class="small text-muted">January 1, 2022</div>
-                    <h2 class="card-title">Featured Post Title</h2>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                    <h2 class="card-title"><?=$post['title']?></h2>
+                    <p class="card-text"><?=$post['content']?></p>
                 </div>
             </div>
             <!-- Nested row for non-featured blog posts-->
