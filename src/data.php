@@ -26,5 +26,3 @@
             'img' => 'https://www.kv.by/sites/default/files/pictures/mainimage/2017/05/v.jpg'
         ]
     ];
-
-echo "234567890";
