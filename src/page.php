@@ -1,8 +1,12 @@
 <?php
+session_start();
 include_once 'db.php';
 $id = $_GET['id'];
 $res = mysqli_query($connection, "select * FROM posts where id = $id");
 $post = mysqli_fetch_assoc($res);
+$_SESSION['sdfsdfds'] ='sdafsdfsd';
+unset($_SESSION['sdfsdfds']);
+
 
 
 ?>

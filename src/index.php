@@ -1,4 +1,9 @@
 <?php
+
+session_start();
+//    $_SESSION['fsfdsfds'] = 23423423423;
+var_dump($_SESSION);
+
 include_once 'db.php';
 $res = mysqli_query($connection, 'select * FROM posts');
 $posts = mysqli_fetch_all($res, MYSQLI_ASSOC);
@@ -49,7 +54,16 @@ $posts = mysqli_fetch_all($res, MYSQLI_ASSOC);
             <!-- Nested row for non-featured blog posts-->
             <div class="row">
 
-              <?php foreach ($posts as $post):?>
+              <?php foreach ($posts as $post):
+                  $shortText = strip_tags($post['content']);
+                  $shortText = trim($shortText);
+                  $shortText = mb_substr($shortText, 0,150);
+                  $pos = mb_strrpos($shortText, ' ');
+                  if ($pos !== false){
+                      $shortText = mb_substr($shortText, 0, $pos);
+                  }
+                  $shortText .= " ...";
+                  ?>
 
                 <div class="col-lg-12">
                     <!-- Blog post-->
@@ -58,7 +72,7 @@ $posts = mysqli_fetch_all($res, MYSQLI_ASSOC);
                         <div class="card-body">
                             <div class="small text-muted">January 1, 2022</div>
                             <h2 class="card-title h4"><?=$post['title']?></h2>
-                            <p class="card-text"><?=$post['content']?></p>
+                            <p class="card-text"><?=$shortText?></p>
                             <a class="btn btn-primary" href="/page.php?id=<?=$post['id']?>">Read more →</a>
                         </div>
                     </div>
