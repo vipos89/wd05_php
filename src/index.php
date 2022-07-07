@@ -1,10 +1,28 @@
 <?php
 
 session_start();
-//    $_SESSION['fsfdsfds'] = 23423423423;
-var_dump($_SESSION);
+
 
 include_once 'db.php';
+
+$filepath = __DIR__.'/img/ES63333.jpeg';
+//delete($filepath);
+//unlink($filepath);
+
+echo dirname ($filepath);
+var_dump(file_exists($filepath));
+var_dump(file_exists(__DIR__));
+var_dump(is_dir(__DIR__));
+var_dump(is_file(__DIR__));
+var_dump(is_file($filepath));
+
+
+echo "<pre>";
+print_r(scandir('/'));
+echo "</pre>";
+
+
+
 $res = mysqli_query($connection, 'select * FROM posts');
 $posts = mysqli_fetch_all($res, MYSQLI_ASSOC);
 ?>
@@ -68,7 +86,7 @@ $posts = mysqli_fetch_all($res, MYSQLI_ASSOC);
                 <div class="col-lg-12">
                     <!-- Blog post-->
                     <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                        <a href="#!"><img class="card-img-top" src="/<?=$post['img']?>" alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted">January 1, 2022</div>
                             <h2 class="card-title h4"><?=$post['title']?></h2>

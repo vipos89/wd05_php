@@ -1,9 +1,20 @@
 <?php
 session_start();
-if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== 1){
-    echo "go to login";
-    die();
-}
+//if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== 1){
+//    echo "go to login";
+//    die();
+//}
+
+
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
+
+echo "<pre>";
+print_r($_FILES);
+echo "</pre>";
+
+
 
 ?>
 <!doctype html>

@@ -1,13 +1,17 @@
 <?php
     session_start();
+    include_once 'db.php';
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         // где-то здесь потерялся запрос к БД и остальная логика
-        if ($_POST['login'] == 'admin' && $_POST['password'] == '1111'){
+        $login = $_POST['login'];
+        $password = md5($_POST['password']);
+        $sql = "SELECT * FROM users WHERE login = '$login' AND password = '$password'";
+        $res = mysqli_query($connection, $sql);
+        $user = mysqli_fetch_assoc($res);
+        if ($user){
             $_SESSION['is_admin'] = 1;
         }
-
     }
-    var_dump($_SESSION);
 
 ?>
 <!doctype html>
