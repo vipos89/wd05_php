@@ -4,22 +4,13 @@ session_start();
 
 
 include_once 'db.php';
-
-$filepath = __DIR__.'/img/ES63333.jpeg';
-//delete($filepath);
-//unlink($filepath);
-
-echo dirname ($filepath);
-var_dump(file_exists($filepath));
-var_dump(file_exists(__DIR__));
-var_dump(is_dir(__DIR__));
-var_dump(is_file(__DIR__));
-var_dump(is_file($filepath));
+include_once 'my_functions.php';
+$rest1 = [1, 2, 3, 4, 5];
+$index = 11;
+rest($rest1, $index);
 
 
-echo "<pre>";
-print_r(scandir('/'));
-echo "</pre>";
+
 
 
 
@@ -71,18 +62,7 @@ $posts = mysqli_fetch_all($res, MYSQLI_ASSOC);
         <div class="col-lg-8">
             <!-- Nested row for non-featured blog posts-->
             <div class="row">
-
-              <?php foreach ($posts as $post):
-                  $shortText = strip_tags($post['content']);
-                  $shortText = trim($shortText);
-                  $shortText = mb_substr($shortText, 0,150);
-                  $pos = mb_strrpos($shortText, ' ');
-                  if ($pos !== false){
-                      $shortText = mb_substr($shortText, 0, $pos);
-                  }
-                  $shortText .= " ...";
-                  ?>
-
+              <?php foreach ($posts as $post):?>
                 <div class="col-lg-12">
                     <!-- Blog post-->
                     <div class="card mb-4">
@@ -90,7 +70,7 @@ $posts = mysqli_fetch_all($res, MYSQLI_ASSOC);
                         <div class="card-body">
                             <div class="small text-muted">January 1, 2022</div>
                             <h2 class="card-title h4"><?=$post['title']?></h2>
-                            <p class="card-text"><?=$shortText?></p>
+                            <p class="card-text"><?=shortText($post['content'])?></p>
                             <a class="btn btn-primary" href="/page.php?id=<?=$post['id']?>">Read more →</a>
                         </div>
                     </div>
