@@ -4,7 +4,7 @@
     class Student extends Human
     {
         public function sayAnswer(){
-            return "I don't know";
+            return "I don't know...";
         }
 
         public function sayHello()
