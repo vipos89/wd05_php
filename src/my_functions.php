@@ -32,4 +32,8 @@
         return $array;
     }
 
+    function isLower(string $string){
+        return $string === strtolower($string);
+    }
+
 
