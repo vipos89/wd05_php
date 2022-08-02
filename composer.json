@@ -1,0 +1,14 @@
+{
+    "name": "vipos89/wd05mvc",
+    "description": "my first mvc",
+    "type": "project",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "5.4.x-dev"
+    }
+}
