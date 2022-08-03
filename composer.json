@@ -9,6 +9,7 @@
         }
     },
     "require": {
-        "vlucas/phpdotenv": "5.4.x-dev"
+        "vlucas/phpdotenv": "5.4.x-dev",
+        "bramus/router": "dev-master"
     }
 }

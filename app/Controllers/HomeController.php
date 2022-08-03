@@ -13,4 +13,12 @@
             $user = new User();
             $user->sayHello();
         }
+
+        public function about(){
+            echo "about";
+        }
+
+        public function notFound(){
+            echo "404 page";
+        }
     }
