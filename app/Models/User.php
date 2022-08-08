@@ -4,10 +4,10 @@
     namespace App\Models;
 
 
-    class User
+    use App\Core\Model;
+
+    class User extends Model
     {
-        public function sayHello(){
-            echo "hello";
-        }
+
 
     }

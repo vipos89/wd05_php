@@ -10,12 +10,13 @@
     {
         public function index()
         {
-            $user = new User();
-            $user->sayHello();
+            // @TODO sql
+            $h1 = 'Hello world';
+            include __DIR__.'/../views/index.php';
         }
 
         public function about(){
-            echo "about";
+            include __DIR__.'/../views/about.php';
         }
 
         public function notFound(){

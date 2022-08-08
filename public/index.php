@@ -10,30 +10,15 @@
     $dotenv = Dotenv\Dotenv::createUnsafeImmutable(__DIR__ . "/../");
     $dotenv->load();
 
-    $host = getenv('DB_HOST');
-    $dbname = getenv('DB_NAME');
-
-    $connectionString = "mysql:host={$host};dbname={$dbname}";
-
-    $connection  = new PDO($connectionString, getenv('DB_USER'), getenv('DB_PASSWORD'));
-
-    $res = $connection->query('select * from posts');
-    $posts = $res->fetchAll(PDO::FETCH_OBJ );
-    Debugger::debug($posts);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//    $id = '15';
+//    $post = App\Models\Post::findById($id);
+//    Debugger::debug($post);
+    // select * from users where id = 15;DELETE * FROM USERS; limit 1
+//    $connection = App\Core\DB::getDBConnection();
+//
+//    $post = App\Models\Post::findById(15);
+//    Debugger::debug(App\Models\User::findById(1));
+//    Debugger::debug(App\Models\Post::getAll());
 
     $router = new Router();
     $router->get('/', HomeController::class.'@index');
