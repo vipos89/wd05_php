@@ -7,7 +7,7 @@
     class Post extends Model
     {
         public function getShortText(){
-            return mb_substr($this->content, 0, 15);
+            return mb_substr($this->content, 0, 150);
         }
 
     }

@@ -4,22 +4,25 @@
     namespace App\Controllers;
 
 
+    use App\Helpers\Debugger;
+    use App\Models\Post;
     use App\Models\User;
 
     class HomeController
     {
         public function index()
         {
-            // @TODO sql
             $h1 = 'Hello world';
-            include __DIR__.'/../views/index.php';
+            $posts = Post::getAll();
+            view('index',  compact('h1', 'posts'));
+
         }
 
         public function about(){
-            include __DIR__.'/../views/about.php';
+            view('about');
         }
 
         public function notFound(){
-            echo "404 page";
+            view('404');
         }
     }
