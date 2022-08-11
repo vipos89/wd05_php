@@ -17,6 +17,8 @@
     #$router->get('/blog', BlogController::class."@index");
 
     $router->get('/blog/{id}', BlogController::class."@page");
+    $router->get('/contact', HomeController::class."@contact");
+    $router->post('/contact', HomeController::class."@post_contact");
 
     $router
         ->match('GET|POST|PUT|DELETE', '.*',

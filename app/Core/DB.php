@@ -28,5 +28,4 @@
             return self::$connection;
         }
 
-
     }
